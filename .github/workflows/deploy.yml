@@ -9,6 +9,12 @@ on:
       resourceGroupName:
         required: true
         type: string
+      AZURE_WEBAPP_NAME:
+        required: true
+        type: string
+      AZURE_WEBAPP_PACKAGE_PATH:
+        required: true
+        type: string
     secrets:
       AZURE_CLIENT_ID:
         required: true
@@ -97,7 +103,8 @@ jobs:
     - uses: actions/download-artifact@v4
       name: Download website artifact
       with:
-        name: HelloWorldWebApp
+        name: ${{ inputs.AZURE_WEBAPP_NAME }}
+        path: ${{ inputs.AZURE_WEBAPP_PACKAGE_PATH }}
 
     - uses: azure/login@v1
       name: Sign in to Azure
@@ -110,7 +117,7 @@ jobs:
       name: Deploy website
       with:
         app-name: ${{ needs.deploy-infrastructure.outputs.appServiceAppName }}
-        package: ${{ github.workspace }}/HelloWorldWebApp
+        package: ${{ inputs.AZURE_WEBAPP_PACKAGE_PATH }}
 
   smoke-test:
     runs-on: ubuntu-latest
