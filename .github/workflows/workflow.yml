@@ -21,10 +21,10 @@ jobs:
     # Deploy to the test environment
     deploy-test:
       uses: ./.github/workflows/deploy.yml
-      needs: [build, lint]
+      needs: lint
       with:
         environmentType: Test
-        resourceGroupName: rg-Test
+        resourceGroupName: end-to-end-deployments-test
       secrets:
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_TEST }}
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
@@ -35,11 +35,10 @@ jobs:
       uses: ./.github/workflows/deploy.yml
       needs:
         - lint
-        - build
         - deploy-test    
       with:
         environmentType: Production
-        resourceGroupName: rg-Production
+        resourceGroupName: end-to-end-deployments-production
       secrets:
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_PRODUCTION }}
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
