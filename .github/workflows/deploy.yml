@@ -110,7 +110,7 @@ jobs:
       name: Deploy website
       with:
         app-name: ${{ needs.deploy-infrastructure.outputs.appServiceAppName }}
-        package: website/publish.zip
+        package: ${{ github.workspace }}/HelloWorldWebApp.zip
 
   smoke-test:
     runs-on: ubuntu-latest
