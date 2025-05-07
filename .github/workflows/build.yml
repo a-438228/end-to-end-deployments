@@ -1,4 +1,4 @@
-name: build-website
+name: Build application
 
 on:
   workflow_dispatch:
@@ -25,3 +25,9 @@ jobs:
 
     - name: Publish
       run: dotnet publish ./src/HelloWorldWebApp/HelloWorldWebApp.sln --configuration Release --no-build
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: HelloWorldWebApp
+        path: /src/HelloWorldWebApp/bin/Release/net8.0/publish
