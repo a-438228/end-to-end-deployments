@@ -30,4 +30,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: HelloWorldWebApp
-        path: /src/HelloWorldWebApp/bin/Release/net8.0/publish
+        path: src/HelloWorldWebApp/bin/Release/net8.0/publish
