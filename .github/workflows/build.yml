@@ -6,10 +6,10 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: website-p6oa4jx6vfo42
-  AZURE_WEBAPP_PACKAGE_PATH: 'src/HelloWorldWebApp/publish/HelloWorldWebApp'
-  DOTNET_VERSION: '8.0.x'
-  SOLUTION_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.sln'
-  PROJECT_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.csproj'
+  AZURE_WEBAPP_PACKAGE_PATH: 'src/MyWebApp/publish'
+  DOTNET_VERSION: '9.0.x'
+  SOLUTION_PATH: 'src/MyWebApp/MyWebApp.sln'
+  PROJECT_PATH: 'src/MyWebApp'
 
 jobs:
   build:
