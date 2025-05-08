@@ -10,7 +10,6 @@ env:
   DOTNET_VERSION: '8.0.x'
   SOLUTION_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.sln'
   PROJECT_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.csproj'
-  PUBLISH_DIR: "./publish"
 
 jobs:
   build:
@@ -33,7 +32,7 @@ jobs:
       run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.PUBLISH_DIR }}
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
