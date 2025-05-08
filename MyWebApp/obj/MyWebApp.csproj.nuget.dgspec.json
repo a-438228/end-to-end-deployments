@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AlexBannister\\copilot-temp\\MyWebApp\\MyWebApp.csproj": {}
+    "C:\\repos\\GitHub\\end-to-end-deployments\\MyWebApp\\MyWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AlexBannister\\copilot-temp\\MyWebApp\\MyWebApp.csproj": {
+    "C:\\repos\\GitHub\\end-to-end-deployments\\MyWebApp\\MyWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AlexBannister\\copilot-temp\\MyWebApp\\MyWebApp.csproj",
+        "projectUniqueName": "C:\\repos\\GitHub\\end-to-end-deployments\\MyWebApp\\MyWebApp.csproj",
         "projectName": "MyWebApp",
-        "projectPath": "C:\\Users\\AlexBannister\\copilot-temp\\MyWebApp\\MyWebApp.csproj",
+        "projectPath": "C:\\repos\\GitHub\\end-to-end-deployments\\MyWebApp\\MyWebApp.csproj",
         "packagesPath": "C:\\Users\\AlexBannister\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AlexBannister\\copilot-temp\\MyWebApp\\obj\\",
+        "outputPath": "C:\\repos\\GitHub\\end-to-end-deployments\\MyWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

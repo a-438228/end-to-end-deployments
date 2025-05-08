@@ -6,10 +6,11 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: website-p6oa4jx6vfo42
-  AZURE_WEBAPP_PACKAGE_PATH: './src/MyWebApp/publish'
+  AZURE_WEBAPP_PACKAGE_PATH: './MyWebApp/publish'
   DOTNET_VERSION: '9.0.x'
-  SOLUTION_PATH: './src/MyWebApp/MyWebApp.sln'
-  PROJECT_PATH: './src/MyWebApp'
+  SOLUTION_PATH: 'MyWebApp.sln'
+  PROJECT_PATH: 'MyWebApp'
+  PUBLISH_DIR: './publish'
 
 jobs:
   build:
@@ -32,7 +33,7 @@ jobs:
       run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.PUBLISH_DIR }}
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
