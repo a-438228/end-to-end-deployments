@@ -3,13 +3,6 @@ name: Build application
 on:
   workflow_dispatch:
   workflow_call:
-    inputs:
-      AZURE_WEBAPP_NAME:
-        required: true
-        type: string
-      AZURE_WEBAPP_PACKAGE_PATH:
-        required: true
-        type: string
 
 jobs:
   build:
@@ -36,5 +29,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ inputs.AZURE_WEBAPP_NAME }}
-        path: ${{ inputs.AZURE_WEBAPP_PACKAGE_PATH }}
+        name: HelloWorldWebApp
+        path: src/HelloWorldWebApp/bin/Release/net8.0/publish

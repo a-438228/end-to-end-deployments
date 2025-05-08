@@ -13,9 +13,6 @@ jobs:
     # Build the application
     build:
       uses: ./.github/workflows/build.yml
-      with:
-        AZURE_WEBAPP_NAME: HelloWorldWebApp
-        AZURE_WEBAPP_PACKAGE_PATH: "./HelloWorldWebApp/publish"
 
     # Lint the Bicep file
     lint:
@@ -28,8 +25,6 @@ jobs:
       with:
         environmentType: Test
         resourceGroupName: end-to-end-deployments-test
-        AZURE_WEBAPP_NAME: HelloWorldWebApp
-        AZURE_WEBAPP_PACKAGE_PATH: "./HelloWorldWebApp/publish"
       secrets:
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_TEST }}
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
@@ -44,8 +39,6 @@ jobs:
       with:
         environmentType: Production
         resourceGroupName: end-to-end-deployments-production
-        AZURE_WEBAPP_NAME: HelloWorldWebApp
-        AZURE_WEBAPP_PACKAGE_PATH: "./HelloWorldWebApp/publish"
       secrets:
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_PRODUCTION }}
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
