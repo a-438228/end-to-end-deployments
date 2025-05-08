@@ -9,7 +9,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: 'src/HelloWorldWebApp/bin/Release/net8.0/publish'
   DOTNET_VERSION: '8.0.x'
   SOLUTION_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.sln'
-  PROJECT_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp'
+  PROJECT_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.csproj'
   PUBLISH_DIR: "./publish"
 
 jobs:
