@@ -4,30 +4,39 @@ on:
   workflow_dispatch:
   workflow_call:
 
+env:
+  AZURE_WEBAPP_NAME: website-p6oa4jx6vfo42
+  AZURE_WEBAPP_PACKAGE_PATH: 'src/HelloWorldWebApp/publish/HelloWorldWebApp'
+  DOTNET_VERSION: '8.0.x'
+  SOLUTION_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.sln'
+  PROJECT_PATH: 'src/HelloWorldWebApp/HelloWorldWebApp.csproj'
+  PUBLISH_DIR: "./publish"
+
 jobs:
   build:
     name: Build application
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Restore
-      run: dotnet restore ./src/HelloWorldWebApp/HelloWorldWebApp.sln
+      run: dotnet restore ${{ env.SOLUTION_PATH }}
 
     - name: Build
-      run: dotnet build ./src/HelloWorldWebApp/HelloWorldWebApp.sln --configuration Release --no-restore
+      run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish ./src/HelloWorldWebApp/HelloWorldWebApp.sln --configuration Release --no-build
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.PUBLISH_DIR }}
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: HelloWorldWebApp
-        path: src/HelloWorldWebApp/bin/Release/net8.0/publish
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
